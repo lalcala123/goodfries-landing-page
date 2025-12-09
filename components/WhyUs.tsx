@@ -28,7 +28,7 @@ const WhyUs: React.FC = () => {
             return (
               <div 
                 key={index} 
-                className="group bg-[#111]/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-brand-gold/50 transition-all duration-300 hover:-translate-y-2 shadow-2xl shadow-black"
+                className="group bg-[#111]/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-brand-gold/50 transition-all duration-300 hover:-translate-y-2 shadow-2xl shadow-black hover:shadow-brand-gold/20 hover:bg-white/5"
               >
                 <div className="w-16 h-16 bg-brand-violet/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300">
                   <Icon size={32} className="text-brand-gold group-hover:text-brand-black transition-colors" />

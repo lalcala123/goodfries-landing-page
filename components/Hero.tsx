@@ -38,8 +38,8 @@ const Hero: React.FC = () => {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-extrabold leading-tight mb-6">
-              <span className="text-white">El Secreto de un</span><br />
-              <span className="gold-gradient-text">Gran Sabor</span>
+              <span className="text-white">La Mejor Papa Peruana</span><br />
+              <span className="gold-gradient-text">para tu Negocio</span>
             </h1>
             
             <p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">

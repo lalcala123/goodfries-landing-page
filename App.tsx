@@ -9,6 +9,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Button from './components/Button';
+import VideoSection from './components/VideoSection';
 import { Menu, X } from 'lucide-react';
 import { LOGO_URL } from './constants';
 
@@ -39,14 +40,20 @@ function App() {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
     setMobileMenuOpen(false);
   };
 
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth' 
+    });
   };
 
   return (
@@ -128,6 +135,12 @@ function App() {
         <section id="inicio" className="scroll-mt-32">
           <Hero />
         </section>
+        
+        {/* Nueva sección de video */}
+        <section id="video" className="scroll-mt-32">
+          <VideoSection />
+        </section>
+
         <section id="beneficios" className="scroll-mt-32">
           <WhyUs />
         </section>

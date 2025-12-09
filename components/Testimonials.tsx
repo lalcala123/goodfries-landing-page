@@ -1,9 +1,28 @@
 import React from 'react';
 import SectionHeading from './SectionHeading';
 import { TESTIMONIALS } from '../constants';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Share2 } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
+  const handleShare = async (t: typeof TESTIMONIALS[0]) => {
+    const shareData = {
+      title: 'GoodFries Testimonio',
+      text: `"${t.text}" — ${t.name}, ${t.role}`,
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(`${shareData.text}\n${shareData.url}`);
+        alert('¡Testimonio copiado al portapapeles!');
+      }
+    } catch (err) {
+      console.error('Error sharing:', err);
+    }
+  };
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background Image: Restaurante VIP */}
@@ -26,7 +45,7 @@ const Testimonials: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((t, idx) => (
-            <div key={idx} className="bg-[#111]/90 backdrop-blur-md p-8 rounded-2xl border border-white/5 shadow-xl relative hover:-translate-y-2 transition-all duration-300 hover:border-brand-gold/30">
+            <div key={idx} className="bg-[#111]/90 backdrop-blur-md p-8 rounded-2xl border border-white/5 shadow-xl relative hover:-translate-y-2 transition-all duration-300 hover:border-brand-gold/50 hover:bg-white/5 hover:shadow-2xl hover:shadow-brand-gold/10 flex flex-col h-full">
               <div className="absolute -top-4 -right-4 bg-brand-gold w-12 h-12 rounded-full flex items-center justify-center text-brand-black shadow-lg shadow-brand-gold/20" aria-hidden="true">
                  <Quote size={20} />
               </div>
@@ -37,16 +56,27 @@ const Testimonials: React.FC = () => {
                 ))}
               </div>
               
-              <p className="text-gray-300 mb-8 italic leading-relaxed">"{t.text}"</p>
+              <p className="text-gray-300 mb-8 italic leading-relaxed flex-grow">"{t.text}"</p>
               
-              <div className="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-violet to-brand-violetHover flex items-center justify-center text-white font-bold text-lg shadow-md" aria-hidden="true">
-                  {t.name.charAt(0)}
+              <div className="flex items-center justify-between border-t border-white/10 pt-6 mt-auto">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-violet to-brand-violetHover flex items-center justify-center text-white font-bold text-lg shadow-md shrink-0" aria-hidden="true">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white leading-tight">{t.name}</h4>
+                    <p className="text-sm text-brand-gold font-medium">{t.role}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-white">{t.name}</h4>
-                  <p className="text-sm text-brand-gold font-medium">{t.role}</p>
-                </div>
+                
+                <button 
+                  onClick={() => handleShare(t)}
+                  className="text-gray-500 hover:text-brand-gold transition-colors p-2 rounded-full hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-brand-gold/50"
+                  aria-label="Compartir testimonio"
+                  title="Compartir"
+                >
+                  <Share2 size={20} />
+                </button>
               </div>
             </div>
           ))}
