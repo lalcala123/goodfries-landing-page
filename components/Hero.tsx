@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import { ArrowRight, Flame } from 'lucide-react';
-import { LOGO_URL } from '../constants';
+import { MASCOT_URL } from '../constants';
 
 const Hero: React.FC = () => {
   const scrollToProducts = () => {
@@ -30,42 +30,55 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Left Column: Text */}
-          <div className="w-full md:w-1/2 text-center md:text-left animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-brand-violet/20 border border-brand-violet/30 rounded-full px-4 py-1.5 mb-6">
+          {/* Left Column: Text Content */}
+          <div className="w-full md:w-1/2 text-center md:text-left animate-fade-in-up flex flex-col items-center md:items-start">
+            
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-brand-violet/20 border border-brand-violet/30 rounded-full px-4 py-1.5 mb-8">
               <Flame size={16} className="text-brand-gold animate-pulse" />
               <span className="text-brand-gold text-sm font-bold tracking-wide uppercase">Calidad Premium Garantizada</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-extrabold leading-tight mb-6">
-              <span className="text-white">La Mejor Papa Peruana</span><br />
-              <span className="gold-gradient-text">para tu Negocio</span>
+            {/* Title - RESTRUCTURED FOR MAX IMPACT */}
+            <h1 className="mb-8 flex flex-col">
+              {/* Brand Name - Massive */}
+              <span className="block text-6xl md:text-8xl lg:text-9xl font-serif font-black tracking-tighter gold-gradient-text mb-2 drop-shadow-2xl leading-none transform -ml-1">
+                GOOD FRIES
+              </span>
+              
+              {/* Slogan - Large & White */}
+              <span className="block text-3xl md:text-5xl font-sans font-bold text-white leading-tight drop-shadow-lg">
+                La Mejor Papa Peruana
+                <span className="block mt-1 text-white/90">para tu Negocio</span>
+              </span>
             </h1>
             
-            <p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
+            {/* Description */}
+            <p className="text-lg text-gray-300 mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
               Elevamos el estándar de tu pollería o restaurante con papas peruanas seleccionadas y carbón de algarrobo de alto rendimiento.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button variant="gold" onClick={scrollToProducts} className="group">
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full sm:w-auto">
+              <Button variant="gold" onClick={scrollToProducts} className="group text-lg px-10">
                 Ver Catálogo
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Button>
-              <Button variant="outline">
+              <Button variant="outline" className="text-lg">
                 Contactar Ventas
               </Button>
             </div>
           </div>
 
-          {/* Right Column: Logo Principal (Reemplaza Mascota) */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end relative">
+          {/* Right Column: Mascota 3D Principal */}
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end relative mt-12 md:mt-0">
             {/* Glow effect */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-gold/10 rounded-full blur-3xl -z-10"></div>
             
             <img 
-              src={LOGO_URL} 
-              alt="GoodFries Logo Principal" 
-              className="w-full max-w-sm md:max-w-md object-contain animate-float drop-shadow-2xl"
+              src={MASCOT_URL} 
+              alt="GoodFries Mascota Premium" 
+              className="w-full max-w-sm md:max-w-md object-contain animate-float drop-shadow-2xl filter"
               onError={() => setImgError(true)}
               style={{ display: imgError ? 'none' : 'block' }}
             />

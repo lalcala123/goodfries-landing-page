@@ -4,7 +4,7 @@ import { Star, Truck, ShieldCheck, Flame, ChefHat, Leaf } from 'lucide-react';
 export const LOGO_URL = "https://i.postimg.cc/JzzybQsf/GOOFIRESl-OGO.png"; 
 
 // URL de la Mascota (Papita Feliz)
-export const MASCOT_URL = "https://cdn-icons-png.flaticon.com/512/1995/1995615.png";
+export const MASCOT_URL = "https://i.postimg.cc/y8HGsfkm/papita.png";
 
 export const WHATSAPP_LINK = "https://wa.me/51998847900";
 export const WHATSAPP_NUMBER = "+51 998 847 900";

@@ -31,6 +31,7 @@
               'float': 'float 6s ease-in-out infinite',
               'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
               'fade-in': 'fadeIn 1s ease-out forwards',
+              'fade-in-scale': 'fadeInScale 0.8s ease-out 0.2s forwards',
             },
             keyframes: {
               float: {
@@ -44,6 +45,10 @@
               fadeIn: {
                 '0%': { opacity: '0' },
                 '100%': { opacity: '1' },
+              },
+              fadeInScale: {
+                '0%': { opacity: '0', transform: 'scale(0.8)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
               }
             }
           }
