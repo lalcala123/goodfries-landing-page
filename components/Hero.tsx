@@ -3,7 +3,11 @@ import Button from './Button';
 import { ArrowRight, Flame } from 'lucide-react';
 import { MASCOT_URL } from '../constants';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenModal?: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   const scrollToProducts = () => {
     const element = document.getElementById('productos');
     if (element) {
@@ -64,7 +68,7 @@ const Hero: React.FC = () => {
                 Ver Catálogo
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Button>
-              <Button variant="outline" className="text-lg">
+              <Button variant="outline" className="text-lg" onClick={onOpenModal}>
                 Contactar Ventas
               </Button>
             </div>

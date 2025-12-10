@@ -10,12 +10,14 @@ import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Button from './components/Button';
 import VideoSection from './components/VideoSection';
+import ContactForm from './components/ContactForm';
 import { Menu, X } from 'lucide-react';
 import { LOGO_URL } from './constants';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +58,11 @@ function App() {
     });
   };
 
+  const openContactForm = () => {
+    setMobileMenuOpen(false);
+    setIsContactModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-brand-black text-white font-sans selection:bg-brand-violet selection:text-white">
       {/* Navbar Fijo */}
@@ -92,7 +99,7 @@ function App() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
-            <Button variant="gold" className="py-2 px-6 text-sm shadow-brand-gold/20">
+            <Button variant="gold" className="py-2 px-6 text-sm shadow-brand-gold/20" onClick={openContactForm}>
               Cotizar
             </Button>
           </div>
@@ -122,7 +129,7 @@ function App() {
               </a>
             ))}
             <div className="pt-2">
-               <Button variant="gold" fullWidth onClick={() => setMobileMenuOpen(false)}>
+               <Button variant="gold" fullWidth onClick={openContactForm}>
                 Cotizar Ahora
               </Button>
             </div>
@@ -133,7 +140,7 @@ function App() {
       <main>
         {/* Sections with scroll-mt-32 to offset fixed header */}
         <section id="inicio" className="scroll-mt-32">
-          <Hero />
+          <Hero onOpenModal={openContactForm} />
         </section>
         
         {/* Nueva sección de video */}
@@ -145,7 +152,7 @@ function App() {
           <WhyUs />
         </section>
         <section id="productos" className="scroll-mt-32">
-          <Products />
+          <Products onOpenModal={openContactForm} />
         </section>
         <section id="comparativa" className="scroll-mt-32">
           <Comparison />
@@ -161,6 +168,9 @@ function App() {
 
       <Footer />
       <FloatingWhatsApp />
+      
+      {/* Formulario Modal Global */}
+      <ContactForm isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>
   );
 }
