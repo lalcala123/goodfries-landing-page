@@ -43,15 +43,15 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <span className="text-brand-gold text-sm font-bold tracking-wide uppercase">Calidad Premium Garantizada</span>
             </div>
 
-            {/* Title - RESTRUCTURED FOR MAX IMPACT */}
-            <h1 className="mb-8 flex flex-col">
-              {/* Brand Name - Massive */}
-              <span className="block text-6xl md:text-8xl lg:text-9xl font-serif font-black tracking-tighter gold-gradient-text mb-2 drop-shadow-2xl leading-none transform -ml-1">
+            {/* Title - RESTRUCTURED FOR MAX IMPACT & SINGLE LINE FIX */}
+            <h1 className="mb-8 flex flex-col items-center md:items-start w-full">
+              {/* Brand Name - Massive & Single Line Forced */}
+              <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-black tracking-tighter gold-gradient-text mb-2 drop-shadow-2xl leading-none transform -ml-1 whitespace-nowrap">
                 GOOD FRIES
               </span>
               
               {/* Slogan - Large & White */}
-              <span className="block text-3xl md:text-5xl font-sans font-bold text-white leading-tight drop-shadow-lg">
+              <span className="block text-2xl sm:text-3xl md:text-5xl font-sans font-bold text-white leading-tight drop-shadow-lg">
                 La Mejor Papa Peruana
                 <span className="block mt-1 text-white/90">para tu Negocio</span>
               </span>
@@ -122,7 +122,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             <img 
               src={MASCOT_URL} 
               alt="GoodFries Mascota Premium" 
-              className="w-full max-w-sm md:max-w-md object-contain animate-float drop-shadow-2xl filter"
+              className="w-full max-w-[500px] lg:max-w-[600px] h-auto object-contain animate-float drop-shadow-2xl filter"
               onError={() => setImgError(true)}
               style={{ display: imgError ? 'none' : 'block' }}
             />
