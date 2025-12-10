@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
-import { ArrowRight, Flame } from 'lucide-react';
+import { ArrowRight, Flame, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { MASCOT_URL } from '../constants';
 
 interface HeroProps {
@@ -71,6 +71,46 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <Button variant="outline" className="text-lg" onClick={onOpenModal}>
                 Contactar Ventas
               </Button>
+            </div>
+
+            {/* Redes Sociales - Hero Section */}
+            <div className="flex items-center gap-5 mt-10 justify-center md:justify-start w-full animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <a 
+                href="https://www.facebook.com/people/Goodfries/61584860310302/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.2)] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] hover:-translate-y-1"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.2)] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] hover:-translate-y-1"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.2)] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] hover:-translate-y-1"
+                aria-label="Twitter"
+              >
+                <Twitter size={20} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-[#D4AF37] text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.2)] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] hover:-translate-y-1"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
             </div>
           </div>
 
