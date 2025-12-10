@@ -1,7 +1,7 @@
 import React from 'react';
 import SectionHeading from './SectionHeading';
 import Button from './Button';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Flame } from 'lucide-react';
 
 interface ProductsProps {
   onOpenModal?: () => void;
@@ -62,4 +62,36 @@ const Products: React.FC<ProductsProps> = ({ onOpenModal }) => {
               alt="Carbón Vegetal Premium de Algarrobo" 
               className="relative w-full rounded-3xl shadow-2xl z-10 border border-white/10 aspect-[4/3] object-cover"
               loading="lazy"
-              width
+              width="800"
+              height="600"
+            />
+          </div>
+          <div className="w-full lg:w-1/2">
+            <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
+              Carbón Vegetal <span className="text-brand-gold">Premium</span>
+            </h3>
+            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+              Carbón de algarrobo y maderas duras certificado. Diseñado para profesionales de la brasa que necesitan alto rendimiento calorífico y larga duración.
+            </p>
+            <ul className="space-y-4 mb-8">
+              {[
+                "100% Algarrobo y maderas duras",
+                "Encendido rápido sin chispas",
+                "Poder calorífico superior (+4hrs)",
+                "Menos humo, más aroma a leña"
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-gray-300 bg-white/5 p-3 rounded-lg border border-white/5 hover:border-brand-gold/30 transition-colors">
+                  <Flame className="text-brand-gold" size={24} />
+                  <span className="font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Button variant="gold" onClick={onOpenModal}>Cotizar Carbón</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Products;
